@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>韩政颐 Hans · 个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="韩政颐 Hans 的个人主页，记录材料学习、日落与家人。">
+  <style>
+    :root {
+      --bg: #fff7f2;
+      --bg-soft: #ffe9df;
+      --card: #ffffff;
+      --accent: #f59e7b;
+      --accent-soft: #ffe2d2;
+      --text-main: #3f2d2a;
+      --text-muted: #8c6f65;
+      --border: rgba(244, 181, 150, 0.4);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 16px 40px rgba(182, 129, 104, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "SF Pro Text", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 0 0, #ffe6d6 0, transparent 55%),
+        radial-gradient(circle at 100% 0, #ffe8e0 0, transparent 55%),
+        radial-gradient(circle at 50% 100%, #ffeede 0, transparent 60%),
+        var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 26px 18px 40px;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 26px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff7f2 0, #febc92 40%, #f97373 100%);
+      box-shadow: 0 0 18px rgba(249, 115, 129, 0.7);
+    }
+
+    .nav-title {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      border-color: rgba(244, 181, 150, 0.8);
+      background: rgba(255, 245, 239, 0.9);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 26px;
+      margin-bottom: 30px;
+    }
+
+    .hero-main {
+      padding: 22px 22px 20px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(255, 240, 231, 0.96)
+      );
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(255, 236, 222, 0.9);
+      color: var(--text-muted);
+      border: 1px solid rgba(244, 181, 150, 0.9);
+      margin-bottom: 12px;
+      gap: 6px;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #facc15 0, #f97316 55%, #c05621 100%);
+      box-shadow: 0 0 8px rgba(248, 187, 89, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 4vw, 32px);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #f97373, #f59e7b, #fbbf24);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      max-width: 34em;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #fff9f6;
+      border: 1px solid rgba(244, 181, 150, 0.7);
+      color: var(--text-main);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 20% 0%, #ffe8de 0, #f59e7b 45%, #f97373 100%);
+      color: #4a2621;
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(241, 137, 107, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 15px 35px rgba(241, 137, 107, 0.9);
+      filter: brightness(1.03);
+    }
+
+    .btn-ghost {
+      background: #fff9f6;
+      color: var(--text-muted);
+      border-color: rgba(244, 181, 150, 0.9);
+    }
+
+    .btn-ghost:hover {
+      background: #fff3ea;
+      color: var(--text-main);
+    }
+
+    .hero-soft-circle {
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      opacity: 0.55;
+      mix-blend-mode: multiply;
+      background:
+        radial-gradient(circle at 105% -5%, rgba(253, 186, 116, 0.4) 0, transparent 55%),
+        radial-gradient(circle at 20% 120%, rgba(248, 187, 230, 0.35) 0, transparent 55%);
+    }
+
+    /* 侧边个人卡片 */
+    .hero-profile {
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid var(--border);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-profile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(254, 240, 219, 0.8) 0, transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .profile-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #febc92, #f97373);
+      padding: 3px;
+      margin-bottom: 4px;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      background: #fffdf9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #f97373;
+    }
+
+    .profile-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .profile-role {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .profile-location {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .profile-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .profile-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .meta-pill {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 181, 150, 0.9);
+      color: var(--text-main);
+      background: #fff9f6;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .social-links a {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 181, 150, 0.9);
+      text-decoration: none;
+      color: var(--text-muted);
+      background: #fff9f6;
+      transition: all 0.2s ease;
+    }
+
+    .social-links a:hover {
+      border-color: #f97373;
+      color: #b4533d;
+      background: #ffeae1;
+      box-shadow: 0 8px 20px rgba(231, 135, 110, 0.4);
+      transform: translateY(-1px);
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid rgba(244, 181, 150, 0.6);
+      margin: 10px 0 6px;
+    }
+
+    /* 分区标题 */
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4b2b27;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* 两栏布局 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.3fr);
+      gap: 18px;
+    }
+
+    /* 卡片 */
+    .card {
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 26px rgba(193, 141, 115, 0.18);
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .about-list li {
+      margin-bottom: 4px;
+    }
+
+    /* 技能 */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 181, 150, 0.8);
+      color: var(--text-main);
+      background: #fff9f6;
+      white-space: nowrap;
+    }
+
+    .skill-level {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* 项目 */
+    .projects {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+      gap: 14px;
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 13px 13px 12px;
+      box-shadow: 0 8px 22px rgba(193, 141, 115, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* 家人照片墙 */
+    .family-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .family-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fef3ec;
+      border: 1px solid rgba(244, 181, 150, 0.8);
+      box-shadow: 0 10px 24px rgba(193, 141, 115, 0.25);
+    }
+
+    .family-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .family-item:hover img {
+      transform: scale(1.02);
+      filter: brightness(1.02);
+    }
+
+    .family-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      right: 10px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(255, 246, 240, 0.88);
+      color: #4b2b27;
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+
+    /* 联系方式 */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .contact-item {
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(244, 181, 150, 0.9);
+      background: #fff9f6;
+    }
+
+    .contact-item strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* 页脚 */
+    .footer {
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(244, 181, 150, 0.8);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-profile {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 20px 14px 26px;
+      }
+      .grid-2,
+      .projects {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .family-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-main {
+        padding: 18px 14px 16px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .avatar {
+        width: 80px;
+        height: 80px;
+      }
+      .family-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 顶部导航 -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="logo-circle"></div>
+        <div class="nav-title">Hans · Warm Personal Page</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#family">我的家人</a>
+        <a href="#projects">学习与项目</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span>在悉尼读材料，也在学习如何好好生活</span>
+        </div>
+        <h1 class="hero-title">
+          嗨，我是 <span>韩政颐 Hans</span>
+        </h1>
+        <p class="hero-subtitle">
+          本科在青岛科技大学，现在在 UNSW 读材料技术硕士。白天在实验、作业和考试里摸索工程世界，空闲的时候喜欢追日落、看大海、听音乐、学语言，更重要的是，把这些日子和家人好好分享。
+        </p>
+
+        <div class="hero-tags">
+          <span class="hero-tag">🎓 青岛科技大学本科</span>
+          <span class="hero-tag">🎓 UNSW 材料技术硕士在读</span>
+          <span class="hero-tag">🌅 日落爱好者</span>
+          <span class="hero-tag">🌊 喜欢大海和晴天</span>
+          <span class="hero-tag">🎧 音乐陪伴型学习</span>
+          <span class="hero-tag">🗣 语言控 · English / 其他</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#family" class="btn-primary">先去看看我的家人</a>
+          <a href="#projects" class="btn-ghost">看看我在学习什么</a>
+        </div>
+
+        <div class="hero-soft-circle"></div>
+      </div>
+
+      <!-- 侧边个人卡片 -->
+      <aside class="hero-profile">
+        <div class="profile-inner">
+          <div class="avatar">
+            <div class="avatar-inner">
+              H
+            </div>
+          </div>
+          <div class="profile-name">韩政颐 · Hans</div>
+          <div class="profile-role">青岛科技大学本科 · UNSW 材料技术硕士在读</div>
+          <div class="profile-location">📍 Sydney, Australia</div>
+          <p class="profile-desc">
+            从北方的家，到悉尼的校园，在不同的城市体验不同的光和风。理性地学习材料，也尽量温柔地对待自己和在乎的人。
+          </p>
+
+          <div class="profile-meta">
+            <span class="meta-pill">🌅 和日落有关的一切</span>
+            <span class="meta-pill">🌊 海边散步 > 商场逛街</span>
+            <span class="meta-pill">🎧 BGM 永远在放</span>
+            <span class="meta-pill">📸 想为家人多留一些画面</span>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="social-links">
+            <a href="mailto:1163245110@qq.com">✉️ 1163245110@qq.com</a>
+            <a href="#" target="_blank">📷 以后可以放 vlog / 相册链接</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 关于我 & 技能 -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2 class="section-title">About · 关于我</h2>
+        <p class="section-subtitle">学习、情绪和生活，都想慢慢整理好</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">简单的自我介绍</h3>
+          <p class="card-text">
+            本科阶段在青岛科技大学学习材料相关专业，现在在 UNSW 继续读材料技术硕士。课程里是合金、性能、结构；生活里是地铁、图书馆、超市和不同的天空颜色。很多时候会一边紧张备考，一边又很想把这些日常记录下来，分享给家人，尤其是奶奶。
+          </p>
+          <ul class="about-list">
+            <li>· 学习方向：材料性能、材料选型、工程场景中的应用</li>
+            <li>· 目前状态：在悉尼上课写作业，准备考试，也想为未来的研究和职业多做一点铺垫</li>
+            <li>· 小小愿望：能有稳定的能力去照顾家人，也希望他们看到我在一点点长大</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">一些技能和小能力</h3>
+          <p class="card-text">
+            比起“很厉害的软件技能”，更像是在学习和生活里一点点积累出来的能力。
+          </p>
+
+          <div>
+            <div class="skill-level">学习相关</div>
+            <div class="chip-row">
+              <span class="chip">📖 材料课程学习与笔记整理</span>
+              <span class="chip">🧠 把复杂内容讲简单</span>
+              <span class="chip">📝 整理复习提纲</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div class="skill-level">专业 & 工程思维</div>
+            <div class="chip-row">
+              <span class="chip">🔬 材料性能与选材思路</span>
+              <span class="chip">📊 基础数据分析</span>
+              <span class="chip">🧮 工程题目理解与拆解</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div class="skill-level">生活里的小标签</div>
+            <div class="chip-row">
+              <span class="chip">🌅 找适合看日落的地方</span>
+              <span class="chip">🌊 在海边放空</span>
+              <span class="chip">🎧 音乐 + 耳机 = 情绪出口</span>
+              <span class="chip">🗣 不同语言带来不同视角</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 我的家人 -->
+    <section class="section" id="family">
+      <div class="section-header">
+        <h2 class="section-title">Family · 我的家人</h2>
+        <p class="section-subtitle">很多关于努力和坚持的理由，都是他们给的</p>
+      </div>
+
+      <div class="card" style="margin-bottom:14px;">
+        <h3 class="card-title">想留给家人的一些画面</h3>
+        <p class="card-text">
+          这些照片里有送行的机场、冬天一起散步的夜路、有庆祝、有旅行，也有很日常的背影和船上的聊天。希望不管我在世界哪个角落，家人都能感受到：我在努力过好每一天，也一直很惦记他们。
+        </p>
+      </div>
+
+      <div class="family-grid">
+        <figure class="family-item">
+          <img src="images/family-airport.jpg" alt="在机场和家人合影">
+          <figcaption class="family-caption">在机场的送行合影，把不舍藏在笑里。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/family-night-walk.jpg" alt="夜晚街边散步">
+          <figcaption class="family-caption">冬夜一起散步，灯光很冷，家人很暖。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/family-restaurant.jpg" alt="家人聚餐与鲜花">
+          <figcaption class="family-caption">一桌饭、几束花，就是很实在的幸福感。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/grandma-graduation.jpg" alt="奶奶穿学位服">
+          <figcaption class="family-caption">奶奶穿上学位服，像是替我提前参加了毕业典礼。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/seaside-selfie.jpg" alt="与妈妈在海边合影">
+          <figcaption class="family-caption">和妈妈在海边合照，风有点大，但很开心。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/grandma-temple.jpg" alt="奶奶在景点合影">
+          <figcaption class="family-caption">陪奶奶一起逛景点，看她对世界仍然好奇。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/alley-walk.jpg" alt="夜晚牵手走在巷子里">
+          <figcaption class="family-caption">熟悉的小巷，牵着手慢慢走回家的路。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/boat-backview.jpg" alt="船上两位长辈的背影">
+          <figcaption class="family-caption">船上的背影，静静看着前面的水和芦苇。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/baby-twins.jpg" alt="儿时的我和哥哥">
+          <figcaption class="family-caption">儿时的我和哥哥，小小的我们还不知道会走到哪里。</figcaption>
+        </figure>
+
+        <figure class="family-item">
+          <img src="images/family-statue.jpg" alt="橘子洲头像前的全家福">
+          <figcaption class="family-caption">旅行途中拍下的合影，记录一家人难得的同框时刻。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 学习与项目 -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Study & Projects · 学习与项目</h2>
+        <p class="section-subtitle">一点和专业相关的内容，也是一部分的“现在的我”</p>
+      </div>
+
+      <div class="projects">
+        <article class="project-card">
+          <div class="project-label">课程 / 学术项目</div>
+          <h3 class="project-title">材料选型与结构设计作业（示例）</h3>
+          <p class="project-desc">
+            针对飞机、汽车等工程场景进行材料选型，比较不同合金在强度、韧性、密度、耐腐蚀性和成本方面的表现，给出适合的材料方案，并用报告或 PPT 的形式展示。
+          </p>
+          <div class="project-meta">
+            <span>关键词：材料性能 · 工程思维 · 对比分析</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-label">个人记录 / Side Project</div>
+          <h3 class="project-title">日落与生活片段的整理（计划中）</h3>
+          <p class="project-desc">
+            想把在悉尼和国内拍到的日落、大海、家人片段慢慢整理出来，做成一个小小的相册或 vlog 系列。也许以后会放在这个网站上，让家人随时都能点开看看。
+          </p>
+          <div class="project-meta">
+            <span>关键词：日落 · 家人 · 情绪记录</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact · 联系</h2>
+        <p class="section-subtitle">如果你想聊学习、生活、情绪或者只是想打个招呼</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">你可以这样找到我</h3>
+        <p class="card-text">
+          这里主要放邮箱，如果以后有公开的博客 / 视频号 / 相册链接，也可以慢慢加进来。
+        </p>
+        <div class="contact-row">
+          <div class="contact-item">
+            <strong>邮箱：</strong> 1163245110@qq.com
+          </div>
+          <div class="contact-item">
+            <strong>目前所在城市：</strong> 悉尼 Sydney
+          </div>
+          <div class="contact-item">
+            <strong>备注：</strong> 如果是更私人的联系方式（例如微信），可以只留给熟悉的人。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div>© <span id="year"></span> 韩政颐 Hans. All rights reserved.</div>
+      <div>Built with warm colors, family photos and a lot of gratitude.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
